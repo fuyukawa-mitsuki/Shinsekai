@@ -1,0 +1,36 @@
+add namespace = mod_event
+
+country_event ={
+    id = legacy_of_the_sun
+    title = lots.t
+    desc = lots.d
+    picture = GFX_report_event_generic_read_write
+
+    trigger = {
+        is_ai = no
+    }
+
+    mean_time_to_happen _ {
+        days = 1
+    }
+
+    fre_only_once = yes
+
+    option = {
+        name = lots.a
+        if ={
+            limit = {
+                has_war = yes
+            }
+            every_other_country = {
+                limit = {
+                    has_war_with = ROOT
+                }
+                add_ideas = legacy_of_the_sun
+            }
+        }
+        else = {
+            add_ideas = legacy_of_the_sun
+        }
+    }
+}
